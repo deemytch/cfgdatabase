@@ -1,0 +1,30 @@
+# App::Database
+
+Удобная загрузка настроек и настройка базы Sequel.
+
+Настройки базы берутся из переменной `Cfg.db`
+
+## Готовый кот
+
+    require 'app-config'
+    require 'app-logger'
+    require 'app-database'
+
+    App::Config.init approot: Pathname(__FILE__).dirname
+    App::Logger.new
+    App::Database.instance if Cfg.db
+
+### Содержимое хэша Cfg.db
+
+Подробности смотрите в документации Sequel https://sequel.jeremyevans.net/rdoc/files/doc/opening_databases_rdoc.html#label-General+connection+options
+
+Образец YAML:
+
+    db:
+      adapter: postgres
+      user: datapultem
+      password: my-database-password
+      database: my-database-name
+      host: 127.0.0.1
+      port: 5432
+      search_path: public
