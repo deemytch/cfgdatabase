@@ -12,9 +12,9 @@
     require 'app-logger'
     require 'app-database'
 
-    App::Config.init approot: Pathname(__FILE__).dirname
+    App::Config.init approot: Pathname( __FILE__ ).dirname # Тут должен быть путь к корню проекта
     App::Logger.new
-    App::Database.instance if Cfg.db
+    App::Database.instance if defined?( Cfg.db )
 
 ### Содержимое хэша Cfg.db
 
