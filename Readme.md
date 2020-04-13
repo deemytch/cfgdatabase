@@ -20,8 +20,12 @@
 
 Подробности смотрите в документации Sequel https://sequel.jeremyevans.net/rdoc/files/doc/opening_databases_rdoc.html#label-General+connection+options
 
-Образец YAML:
+Образец настроек YAML:
 
+    app:
+      id: my-prog # look at it `ps ax|grep my-prog`
+      tmout:
+        database_start: 60 # in seconds, time to wait the database server to start
     db:
       adapter: postgres
       user: datapultem
