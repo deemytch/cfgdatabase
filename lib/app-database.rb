@@ -34,8 +34,8 @@ module App
         Sequel::Model.db = @db
         @db.tables.each{ |t| @db.reset_primary_key_sequence t } # Настоящие герои всегда идут в обход
         @db.freeze if Cfg.env == :production
-        Kernel.const_set 'Db', @db
       end
+      Kernel.const_set('Db', @db) unless defined?( ::Db )
       return @db
     end
 
