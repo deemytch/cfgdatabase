@@ -1,0 +1,18 @@
+---
+app:
+  id: cfgdatabase-spec
+  tmpdir: /tmp
+  progname: cfgdatabase-spec
+  log: stdout
+  tmout:
+    database_start: 30
+loglevel: warn
+
+db:
+  adapter: postgres
+  user: postgres
+  password: 
+  database: cfgdatabase_t
+  host: 127.0.0.1
+  port: 5432
+  search_path: public

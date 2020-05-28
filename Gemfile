@@ -5,8 +5,10 @@ source 'https://rubygems.org' do
 
   gem 'monkey-hash'
   gem 'cfgstore'
-
+  gem 'pg'
+  
   group :development, :test do
+    gem 'rspec'
     gem 'pry'
     gem 'irb'
     gem 'pry-byebug'

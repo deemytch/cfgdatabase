@@ -1,5 +1,4 @@
 require 'sequel'
-require 'singleton'
 require 'app-config'
 require 'app-logger'
 
@@ -10,13 +9,12 @@ require 'app-logger'
 # Предполагается использование глобальной Cfg для настроек
 
 module App
-  class Database
-    include Singleton
+  module Database
     attr_reader :db
-
     ##
     # Ищем секцию настроек Cfg.db
-    def initialize
+    module_function
+    def init
       raise ArgumentError.new("Cfg not found!") if ! defined?( ::Cfg ) || ! Cfg.db || Cfg.db.empty?
       if (! defined? @db ) || ( @db.nil? ) || ( ! @db ) || ( ! @db.test_connection )
         Log.info{ "БД #{ Cfg.db.database }." }
@@ -37,6 +35,13 @@ module App
       end
       Kernel.const_set('Db', @db) unless defined?( ::Db )
       return @db
+    end
+
+    def remove
+      if defined?( Db )
+        Db.disconnect if @db.test_connection
+        Kernel.send :remove_const, 'Db'
+      end
     end
 
   end

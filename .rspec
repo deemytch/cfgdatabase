@@ -1,0 +1,5 @@
+--color
+--fail-fast
+--require spec_helper
+--backtrace
+--no-profile
