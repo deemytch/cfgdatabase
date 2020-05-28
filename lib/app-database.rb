@@ -17,7 +17,7 @@ module App
     def init
       raise ArgumentError.new("Cfg not found!") if ! defined?( ::Cfg ) || ! Cfg.db || Cfg.db.empty?
       if (! defined? @db ) || ( @db.nil? ) || ( ! @db ) || ( ! @db.test_connection )
-        Log.info{ "БД #{ Cfg.db.database }." }
+        Log.debug{ "БД #{ Cfg.db.database }." }
         Sequel.extension :pg_array, :pg_inet, :pg_json, :pg_json_ops, :pg_array, :pg_array_ops, :pg_row, :pg_hstore, :pg_json_ops
         Sequel::Model.raise_on_save_failure = false
         Sequel::Model.plugin :validation_helpers
@@ -44,5 +44,8 @@ module App
       end
     end
 
+    def connected?
+      !! ( defined?( Db ) && Db.test_connection )
+    end
   end
 end
