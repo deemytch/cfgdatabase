@@ -44,7 +44,6 @@ PLATFORMS
 
 DEPENDENCIES
   cfgstore!
-  hashie!
   irb!
   monkey-hash!
   pg!

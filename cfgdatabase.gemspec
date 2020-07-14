@@ -1,7 +1,7 @@
 Gem::Specification.new do |lib|
   lib.name          = 'cfgdatabase'
-  lib.version       = '1.2.1'
-  lib.date          = '2020-05-28'
+  lib.version       = '1.2.2'
+  lib.date          = '2020-07-14'
   lib.summary       = 'Удобная загрузка настроек Sequel.'
   lib.files         = Dir[ 'lib/*.rb' ]
   lib.require_paths = %w[ lib ]

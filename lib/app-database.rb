@@ -1,3 +1,4 @@
+require 'pg'
 require 'sequel'
 require 'app-config'
 require 'app-logger'
