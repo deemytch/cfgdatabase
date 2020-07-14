@@ -1,6 +1,6 @@
 Gem::Specification.new do |lib|
   lib.name          = 'cfgdatabase'
-  lib.version       = '1.2.2'
+  lib.version       = '1.2.3'
   lib.date          = '2020-07-14'
   lib.summary       = 'Удобная загрузка настроек Sequel.'
   lib.files         = Dir[ 'lib/*.rb' ]
@@ -8,7 +8,7 @@ Gem::Specification.new do |lib|
   lib.author        = 'deemytch'
   lib.email         = 'aspamkiller@yandex.ru'
   lib.license       = 'GPL-2.0'
-  lib.homepage      = 'https://gitlab.sudo.su/amqp-lib/cfgdatabase'
+  lib.homepage      = 'https://github.com/deemytch/cfgdatabase'
   lib.add_runtime_dependency 'sequel'
   lib.add_runtime_dependency 'monkey-hash'
   lib.add_runtime_dependency 'cfgstore'
