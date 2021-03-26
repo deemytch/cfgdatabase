@@ -14,7 +14,7 @@
 
     App::Config.init approot: Pathname( __FILE__ ).dirname # Тут должен быть путь к корню проекта
     App::Logger.new
-    App::Database.instance if defined?( Cfg.db )
+    App::Database.init if Cfg.db?
 
 ### Содержимое хэша Cfg.db
 
@@ -28,9 +28,13 @@
         database_start: 60 # in seconds, time to wait the database server to start
     db:
       adapter: postgres
-      user: datapultem
+      user: username
       password: my-database-password
       database: my-database-name
       host: 127.0.0.1
       port: 5432
       search_path: public
+
+### Подсобничек
+
+`utils/migrate.rb` помогает мигрировать миграции. Справка по `-h`.
